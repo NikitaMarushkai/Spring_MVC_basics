@@ -15,6 +15,16 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(value = "/table")
+    public String showUsersTable(@RequestParam(value = "name") String name, @RequestParam("surname") String surname,
+                                 @RequestParam("middlename") String middlename, @RequestParam("birthdate") String birthdate, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("surname", surname);
+        model.addAttribute("middlename", middlename);
+        model.addAttribute("birthdate", birthdate);
+        return "table";
+    }
+
     @RequestMapping("/test")
     public String showAnotherPage(@RequestParam(value = "result") String result, Model model) {
         model.addAttribute("text", "Какой-то текст");
